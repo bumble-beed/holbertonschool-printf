@@ -24,6 +24,10 @@ int print_str(char *str)
 	int count;
 
 	count = 0;
+	if (str == NULL)
+	{
+		str = "(null)";
+	}
 	while (*str)
 	{
 		print_char((int)*str);
@@ -56,9 +60,6 @@ int print_format(char specifier, va_list ap)
 		break;
 	case '%':
 		count += print_char('%');
-		break;
-	case NULL:
-		count += print_str("(null)");
 		break;
 	default:
 		count += write(1, &specifier, 1);
