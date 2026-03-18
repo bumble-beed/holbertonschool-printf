@@ -61,7 +61,10 @@ int print_format(char specifier, va_list ap)
 	case '%':
 		count += print_char('%');
 		break;
+	case '\0':
+		return (count);
 	default:
+		count += print_char('%');
 		count += write(1, &specifier, 1);
 	}
 	return (count);
