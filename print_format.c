@@ -57,6 +57,9 @@ int print_format(char specifier, va_list ap)
 	case '%':
 		count += print_char('%');
 		break;
+	case NULL:
+		count += print_str("(null)");
+		break;
 	default:
 		count += write(1, &specifier, 1);
 	}
