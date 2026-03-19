@@ -58,10 +58,8 @@ int print_digits(int n)
 	if (n >= 10)
 	{
 		print_digits((n / 10));
-		write(1, &("0123456789"[n % 10]), 1);	
-		++count;
 	}
-	write(1, &("0123456789"[n]), 1);
+	write(1, &("0123456789"[n % 10]), 1);
 	++count;
 	return (count);
 }
