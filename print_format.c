@@ -38,6 +38,36 @@ int print_str(char *str)
 }
 
 /**
+ * print_digits - prints integer n
+ * @n: integer to print
+ *
+ * Return: Amount of char from str written
+ */
+
+int print_digits(int n)
+{
+	int count;
+
+	count = 0;
+	if (n < 0)
+	{
+		print_char('-');
+		n = -n;
+		++count;
+	}
+	if (n >= 10)
+	{
+		print_digits((n / 10));
+		write(1, &("0123456789"[n % 10]), 1);	
+		++count;
+	}
+	write(1, &("0123456789"[n]), 1);
+	++count;
+	return (count);
+}
+
+
+/**
  * print_format - calls the corresponding print_(format) function to print
  * @specifier: char to sepcify what the format to be printed is
  * @ap: the input needed to be printed
@@ -57,6 +87,12 @@ int print_format(char specifier, va_list ap)
 		break;
 	case 's':
 		count += print_str(va_arg(ap, char *));
+		break;
+	case 'd':
+		count += print_digits(va_arg(ap, int));
+		break;
+	case 'i':
+		count += print_digits(va_arg(ap, int));
 		break;
 	case '%':
 		count += print_char('%');
