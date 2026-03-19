@@ -1,0 +1,67 @@
+.TH _printf 3 2026-03-19 "_printf Holberton School Project"
+.SH NAME
+_printf, print_char, print_str, print_format - custom printf implementation
+.SH FUNCTIONS USED
+.TP
+.B _printf
+Main function. Parses the format string and calls print_format for each specifier.
+.TP
+.B print_char
+Prints a single character to stdout.
+.TP
+.B print_str
+Prints a string to stdout.
+.TP
+.B print_format
+Dispatches to the correct print function based on the conversion specifier.
+.SH SYNOPSIS
+.B #include "main.h"
+.PP
+.BI "int _printf(const char " format ", ...);"
+.PP
+.BI "int print_char(int " c ");"
+.PP
+.BI "int print_str(char" str ");"
+.PP
+.BI "int print_format(char " specifier ", va_list " ap ");"
+.SH DESCRIPTION
+.TP
+.B _printf
+Produces output to stdout according to a format string. Walks through
+the format string character by character. Ordinary characters are printed
+as-is. When a % is found, the next character is passed to print_format
+to handle the conversion specifier.
+.TP
+.B print_char
+Takes an integer c and writes it to stdout as a single character.
+Returns 1 on success.
+.TP
+.B print_str
+Takes a string pointer and prints each character to stdout until the
+null terminator is reached. If the pointer is NULL, prints (null) instead.
+Returns the number of characters printed.
+.TP
+.B print_format
+Takes a specifier character and a va_list. Uses a switch statement to
+call the correct print function. Handles %c, %s, %d, %i, and %%.
+Unknown specifiers print the % followed by the unknown character.
+.SH OUTPUT
+.TP
+.B %c
+Prints a single character.
+.TP
+.B %s
+Prints a string. Prints (null) if pointer is NULL.
+.TP
+.B %d, %i
+Prints a signed decimal integer. Handles negative numbers and INT_MIN.
+.TP
+.B %%
+Prints a literal percent sign.
+.SH RETURN VALUE
+.B _printf
+returns the number of characters printed, excluding the null terminator.
+Returns -1 if format is NULL or format ends with an unhandled %.
+.SH AUTHORS
+Shirleen Asre
+Trevor Huynh
