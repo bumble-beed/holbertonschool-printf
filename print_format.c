@@ -52,8 +52,15 @@ int print_digits(int n)
 	if (n < 0)
 	{
 		print_char('-');
-		n = -n;
 		++count;
+		if (n == -2147483648)
+		{
+			count += print_digits(214748364);
+			write(1, &("0123456789"[8]), 1);
+			++count;
+			return (count);
+		}
+		n = -n;
 	}
 	if (n >= 10)
 	{
