@@ -1,5 +1,11 @@
 # Integration Project - printf
 Implementing a version of printf
+Printf is used to print formatted output to terminal
+Format specifiers are special symbols that start with % to define what type of data
+- for this project we will handle 
+	-	c
+	-	s
+	-	%
 
 ## Requirements
 - All your files will be compiled on Ubuntu 20.04 LTS
@@ -20,10 +26,10 @@ Implementing a version of printf
 - va_arg (man 3 va_arg)
 
 ## Compilation
-
 ```bash
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c
 ```
+
 ## File Structure
 - TBC
 - Testing Folder
