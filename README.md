@@ -2,10 +2,6 @@
 Implementing a version of printf
 Printf is used to print formatted output to terminal
 Format specifiers are special symbols that start with % to define what type of data
-- for this project we will handle 
-	-	c
-	-	s
-	-	%
 
 ## Requirements
 - All your files will be compiled on Ubuntu 20.04 LTS
@@ -35,21 +31,21 @@ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c
 ```
 ## Expected Result
 ```bash
-Let's try to printf a simple sentence.
-Let's try to printf a simple sentence.
+Let's try to printf a simple sentence.        // Print literal text as-is
+Let's try to printf a simple sentence.        // Return the total character count as an int
+Length:[39, 39]                               // Handle %d and %i
 Length:[39, 39]
-Length:[39, 39]
+Negative:[-762534]                            // Handle %d and %i, including negative numbers
 Negative:[-762534]
-Negative:[-762534]
+Unsigned:[2147484671]                         // Handle %u
 Unsigned:[2147484671]
-Unsigned:[2147484671]
+Unsigned octal:[20000017777]                  // Handle %o
 Unsigned octal:[20000017777]
-Unsigned octal:[20000017777]
+Unsigned hexadecimal:[800003ff, 800003FF]     // Handle %x and %X
 Unsigned hexadecimal:[800003ff, 800003FF]
-Unsigned hexadecimal:[800003ff, 800003FF]
+Character:[H]                                 // Handle %c
 Character:[H]
-Character:[H]
-String:[I am a string !]
+String:[I am a string !]                      // Handle %s
 String:[I am a string !]
 ```
 
