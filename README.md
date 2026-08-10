@@ -31,21 +31,21 @@ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c
 ```
 ## Expected Result
 ```bash
-Let's try to printf a simple sentence.        // Print literal text as-is
-Let's try to printf a simple sentence.        // Return the total character count as an int
-Length: [39, 39]                               // Handle %d and %i
+Let's try to printf a simple sentence.		// Print literal text as-is
+Let's try to printf a simple sentence.		// Return the total character count as an int
+Length:[39, 39]								// Handle %d and %i
 Length:[39, 39]
-Negative:[-762534]                            // Handle %d and %i, including negative numbers
+Negative:[-762534]							// Handle %d and %i, including negative numbers
 Negative:[-762534]
-Unsigned:[2147484671]                         // Handle %u
+Unsigned:[2147484671]						// Handle %u
 Unsigned:[2147484671]
-Unsigned octal:[20000017777]                  // Handle %o
+Unsigned octal:[20000017777]				// Handle %o
 Unsigned octal:[20000017777]
-Unsigned hexadecimal:[800003ff, 800003FF]     // Handle %x and %X
+Unsigned hexadecimal:[800003ff, 800003FF]	// Handle %x and %X
 Unsigned hexadecimal:[800003ff, 800003FF]
-Character:[H]                                 // Handle %c
+Character:[H]								// Handle %c
 Character:[H]
-String:[I am a string !]                      // Handle %s
+String:[I am a string !]					// Handle %s
 String:[I am a string !]
 ```
 
