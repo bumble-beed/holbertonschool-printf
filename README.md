@@ -9,6 +9,10 @@ Format specifiers are special symbols that start with % to define what type of d
 
 ## Requirements
 - All your files will be compiled on Ubuntu 20.04 LTS
+- _printf needs to return an int (character count)
+- _printf needs to handle %d and %i
+- _printf needs to handle %u
+- _printf needs to handle negative numbers with %d
 - All your files should end with a new line
 - A README.md file, at the root of the folder of the project is mandatory
 - Follows Betty style and checked using betty-style.pl and betty-doc.pl
@@ -28,6 +32,25 @@ Format specifiers are special symbols that start with % to define what type of d
 ## Compilation
 ```bash
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c
+```
+## Expected Result
+```bash
+Let's try to printf a simple sentence.
+Let's try to printf a simple sentence.
+Length:[39, 39]
+Length:[39, 39]
+Negative:[-762534]
+Negative:[-762534]
+Unsigned:[2147484671]
+Unsigned:[2147484671]
+Unsigned octal:[20000017777]
+Unsigned octal:[20000017777]
+Unsigned hexadecimal:[800003ff, 800003FF]
+Unsigned hexadecimal:[800003ff, 800003FF]
+Character:[H]
+Character:[H]
+String:[I am a string !]
+String:[I am a string !]
 ```
 
 ## File Structure
