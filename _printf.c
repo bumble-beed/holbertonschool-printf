@@ -12,17 +12,16 @@ int _printf(const char *format, ...)
 	int i;
 
 	va_start(position, format);
-	i = 1;
+	i = 0;
 
 	while (format[i] != '\0')
 	{
 		if (format[i] == '%')
 		{
-			i = -1;
 		}
 		else
 		{
-			i = 1;
+			write(STDOUT_FILENO, &format[i], 1);
 		}
 	i++;
 	}
