@@ -33,7 +33,7 @@ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c
 ```bash
 Let's try to printf a simple sentence.        // Print literal text as-is
 Let's try to printf a simple sentence.        // Return the total character count as an int
-Length:[39, 39]                               // Handle %d and %i
+Length: [39, 39]                               // Handle %d and %i
 Length:[39, 39]
 Negative:[-762534]                            // Handle %d and %i, including negative numbers
 Negative:[-762534]
