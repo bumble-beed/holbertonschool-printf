@@ -8,10 +8,11 @@
 
 int _printf(const char *format, ...)
 {
-	va_list args;
+	va_list ap;
+	
+	va_start(ap, format);
 
-	va_start(args);
-	va_end(args);
+	va_end(ap);
 
 	return(0);
 }
