@@ -88,7 +88,10 @@ int _printf(const char *format, ...)
 		{
 			i++;
 			if (format[i] == '\0')
+			{
+				count = -1;
 				break;
+			}
 			if (format[i] == 'c')
 				count += print_char(args);
 			else if (format[i] == 's')
