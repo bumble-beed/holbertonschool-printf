@@ -90,11 +90,7 @@ int _printf(const char *format, ...)
 		{
 			i++;
 			if (format[i] == '\0')
-			{
-				write(1, "%", 1);
-				count++;
 				break;
-			}
 			if (format[i] == 'c')
 				count += print_char(args);
 			else if (format[i] == 's')
