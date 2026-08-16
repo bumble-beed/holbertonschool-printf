@@ -25,8 +25,7 @@ int print_char(va_list args)
 int print_string(va_list args)
 {
 	char *str;
-	int i;
-	int count;
+	int i, count;
 
 	str = va_arg(args, char *);
 
@@ -69,8 +68,7 @@ int print_percent(va_list args)
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int i;
-	int count;
+	int i, count;
 
 	if (format == NULL)
 		return (-1);
@@ -82,7 +80,10 @@ int _printf(const char *format, ...)
 	while (format[i] != '\0')
 	{
 		if (format[i] != '%')
-			break;
+		{
+			write(1, &format[i], 1);
+			count++;
+		}
 		else
 		{
 			i++;
