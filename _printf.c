@@ -6,7 +6,6 @@
  *
  * Return: number of characters printed
  */
-
 int print_char(va_list args)
 {
 	char c;
@@ -23,7 +22,6 @@ int print_char(va_list args)
  *
  * Return: number of characters printed
  */
-
 int print_string(va_list args)
 {
 	char *str;
@@ -54,7 +52,6 @@ int print_string(va_list args)
  *
  * Return: number of characters printed
  */
-
 int print_percent(va_list args)
 {
 	(void)args;
@@ -69,7 +66,6 @@ int print_percent(va_list args)
  *
  * Return: number of characters printed
  */
-
 int _printf(const char *format, ...)
 {
 	va_list args;
@@ -85,9 +81,17 @@ int _printf(const char *format, ...)
 
 	while (format[i] != '\0')
 	{
-		if (format[i] == '%')
+		if (format[i] != '%')
+		{
+			write(1, &format[i], 1);
+			count++;
+		}
+		else
 		{
 			i++;
+
+			if (format[i] == '\0')
+				break;
 
 			if (format[i] == 'c')
 				count += print_char(args);
@@ -98,19 +102,9 @@ int _printf(const char *format, ...)
 			else
 			{
 				write(1, "%", 1);
-				count++;
-
-				if (format[i] != '\0')
-				{
-					write(1, &format[i], 1);
-					count++;
-				}
+				write(1, &format[i], 1);
+				count += 2;
 			}
-		}
-		else
-		{
-			write(1, &format[i], 1);
-			count++;
 		}
 
 		i++;
