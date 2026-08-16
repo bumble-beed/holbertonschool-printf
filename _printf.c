@@ -82,10 +82,7 @@ int _printf(const char *format, ...)
 	while (format[i] != '\0')
 	{
 		if (format[i] != '%')
-		{
-			write(1, &format[i], 1);
-			count++;
-		}
+			break;
 		else
 		{
 			i++;
