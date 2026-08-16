@@ -89,25 +89,19 @@ int _printf(const char *format, ...)
 		else
 		{
 			i++;
-
 			if (format[i] == '\0')
+			{
+				write(1, "%", 1);
+				count++;
 				break;
-
+			}
 			if (format[i] == 'c')
 				count += print_char(args);
 			else if (format[i] == 's')
 				count += print_string(args);
 			else if (format[i] == '%')
 				count += print_percent(args);
-			else
-			{
-				write(1, "%", 1);
-				write(1, &format[i], 1);
-				count += 2;
-			}
 		}
-
-		i++;
 	}
 
 	va_end(args);
