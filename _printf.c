@@ -58,6 +58,35 @@ int print_percent(va_list args)
 
 	return (1);
 }
+/**
+ * print_int - prints an integer, including negatives
+ * @n: the integer to print
+ *
+ * Return: number of characters printed
+ */
+int print_int(int n)
+{
+	int count = 0;
+
+	if (n < 0)
+	{
+		write(1, "-", 1);
+		count++;
+		if (n == -2147483648)
+		{
+			count += print_int(214748364);
+			write(1, "8", 1);
+			count++;
+			return (count);
+		}
+		n = -n;
+	}
+	if (n >= 10)
+		count += print_int(n / 10);
+	write(1, &"0123456789"[n % 10], 1);
+	count++;
+	return (count);
+}
 
 /**
  * _printf - produces output according to a format
@@ -98,6 +127,8 @@ int _printf(const char *format, ...)
 				count += print_string(args);
 			else if (format[i] == '%')
 				count += print_percent(args);
+			else if (format[i] == 'd' || format[i] == 'i')
+				count += print_int(va_arg(args, int));
 			else
 			{
 				write(1, "%", 1);
